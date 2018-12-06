@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Welcome to Social Setting | Nashville
+    Login to Your Account
 @endsection
 
 @push('head')
@@ -10,7 +10,7 @@
 @section('content')
 
     <section id='allEvents'>
-        <h2>Welcome to Social Setting | Nashville</h2>
+        <h2>Login to Your Account</h2>
 
     </section>
 @endsection

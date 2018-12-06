@@ -1,6 +1,13 @@
 <?php
 
 return [
+        'nav' => [
+            '/' => 'Home',
+            '/events' => 'Events',
+            '/events/search' => 'Search',
+            '/events/login' => 'Login',
+
+        ],
 
     /*
     |--------------------------------------------------------------------------
