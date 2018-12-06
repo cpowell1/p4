@@ -3,24 +3,23 @@
 <head>
     <title>@yield('title', config('app.name'))</title>
     <meta charset='utf-8'>
-
-    {{-- CSS global to every page can be loaded here --}}
-    <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet" crossorigin="anonymous">
-
-    <link href='socialsetting.css' rel='stylesheet'>
-
-    {{-- CSS specific to a given page/child view can be included via a stack --}}
+    <link href='/socialsetting.css' rel='stylesheet'>
+    <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          rel="stylesheet"
+          crossorigin="anonymous">
     @stack('head')
+
 </head>
 <body>
 
 
 <header>
-   <h1>Social Setting | Nashville</h1>
+    <h1>Social Setting | Nashville</h1>
     @include('modules.nav')
 </header>
 
-<section id='main'>
+<section>
     @yield('content')
 </section>
 

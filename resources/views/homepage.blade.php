@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <section id='allEvents'>
+    <section class='mainContent'>
         <h2>Welcome to Social Setting | Nashville</h2>
 
     </section>

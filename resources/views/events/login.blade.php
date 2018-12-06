@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <section id='allEvents'>
+    <section class='mainContent'>
         <h2>Login to Your Account</h2>
 
     </section>

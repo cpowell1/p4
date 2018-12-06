@@ -46,7 +46,8 @@ a.active:link, a.active:visited, a.active:active, a.active:hover {
 
 .mainContent {
 margin: auto;
-padding-bottom: 25px;
+text-align: center;
+padding: 20px;
 }
 
 .mainContent h2 {

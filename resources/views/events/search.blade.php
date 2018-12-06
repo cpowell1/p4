@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-    <section id='allEvents'>
+    <section class='mainContent'>
         <h2>Search All Events</h2>
 
     </section>
