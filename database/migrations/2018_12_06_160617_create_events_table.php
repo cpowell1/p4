@@ -13,7 +13,7 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             # Increments method will make a Primary, Auto-Incrementing field.
             # Most tables start off this way
             $table->increments('id');
