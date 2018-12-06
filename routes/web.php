@@ -23,7 +23,6 @@ Route::get('/events/search', 'EventController@search');
 Route::get('/events/search-process', 'EventController@searchProcess');
 
 # SHOW
-Route::get('/events/{id}', 'EventController@show');
 Route::get('/events', 'EventController@index');
 
 #LOGIN

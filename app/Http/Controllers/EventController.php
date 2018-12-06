@@ -16,14 +16,6 @@ class EventController extends Controller
         ]);
     }
 
-    public function show(Request $request, $id)
-    {
-        $event = Event::find($id);
-
-        return view('events.show')->with([
-            'event' => $event
-        ]);
-    }
 
     public function search()
     {
