@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Event;
 
 class EventsTableSeeder extends Seeder
 {
@@ -12,12 +13,12 @@ class EventsTableSeeder extends Seeder
     public function run()
     {
         $events = [
-            ['Winter Festival with Junior Chamber', 2018-11-30, '05:00:00', 'Cheekwood Gardens- Massey Hall', 'Networking'],
-            ['Santa Rampage', 2018-12-15, '05:00:00', '4th & Broadway', 'Holiday'],
-            ['Porter Flea Market', 2018-12-07, '05:00:00', 'The Fairgrounds', 'Festivals'],
-            ['Ugly Christmas Sweaters Dog Edition', 2018-12-03, '05:00:00', 'The Farm at Natchez Trace', 'Pet-Friendly'],
-            ['Single All the Way Bar Crawl', 2018-12-18, '05:00:00', 'Tin Roof', 'Drinking'],
-            ['Make-A-Wish St. Jude Gala', 2018-12-21, '05:00:00', 'The Ryman Auditorium', 'Charity'],
+            ['Winter Festival with Junior Chamber', 'December 28th, 2018', '6:30pm', 'Cheekwood Gardens- Massey Hall', 'Networking'],
+            ['Santa Rampage', 'December 15th, 2018', '12pm', '4th & Broadway', 'Holiday'],
+            ['Porter Flea Market', 'December 7th, 2018', '10am', 'The Fairgrounds', 'Festivals'],
+            ['Ugly Christmas Sweaters Dog Edition', 'December 5th, 2018', '2pm', 'The Farm at Natchez Trace', 'Pet-Friendly'],
+            ['Single All the Way Bar Crawl', 'December 21st, 2018', '5pm', 'Tin Roof', 'Drinking'],
+            ['Make-A-Wish St. Jude Gala', 'December 14th, 2018', '7pm', 'The Ryman Auditorium', 'Charity'],
         ];
 
         $count = count($events);

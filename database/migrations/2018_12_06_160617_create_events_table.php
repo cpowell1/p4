@@ -24,8 +24,8 @@ class CreateEventsTable extends Migration
 
             # The rest of the fields...
             $table->string('event_name');
-            $table->date('date');
-            $table->time('time');
+            $table->string('date');
+            $table->string('time');
             $table->string('location');
             $table->string('category');
         });
