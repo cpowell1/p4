@@ -8,9 +8,12 @@
 @endpush
 
 @section('content')
-    <section id='allEvents'>
+    <section>
         <h2>All Events</h2>
+        <ul>
         @foreach($events as $event)
+        @include('modules.listing')
         @endforeach
+        </ul>
     </section>
 @endsection
