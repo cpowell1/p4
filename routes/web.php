@@ -13,11 +13,6 @@
 
 Route::get('/', 'HomeController');
 
-# SHOW
-Route::get('/events/{id}', 'EventController@show');
-Route::get('/events', 'EventController@index');
-
-
 
 # CREATE
 Route::get('/events/create', 'EventController@create');
@@ -26,6 +21,15 @@ Route::post('/events', 'EventController@store');
 #SEARCH
 Route::get('/events/search', 'EventController@search');
 Route::get('/events/search-process', 'EventController@searchProcess');
+
+# SHOW
+Route::get('/events/{id}', 'EventController@show');
+Route::get('/events', 'EventController@index');
+
+#LOGIN
+Route::get('/events/login', 'EventController@login');
+
+
 
 # EDIT
 # Show the form to edit a specific book

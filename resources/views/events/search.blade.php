@@ -5,13 +5,12 @@
 @endsection
 
 @push('head')
+    <link href='socialsetting.css' rel='stylesheet'>
 @endpush
 
 @section('content')
-    @include('modules.nav')
     <section id='allEvents'>
         <h2>Search All Events</h2>
-        @foreach($events as $event)
-        @endforeach
+
     </section>
 @endsection

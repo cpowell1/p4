@@ -6,16 +6,16 @@
 
 @push('head')
 @endpush
-
 @section('content')
+
     <h1>{{ $event->event_name }}</h1>
 
-    <div>
+
 
         <p>Added {{ $event->created_at->format('m/d/y') }}</p>
 
 
-
+    <div>
         <ul>
             <li><a href='{{ $event->event_name }}'><i class="fas fa-shopping-cart"></i> Purchase</a>
             <li><a href='/events/{{ $event->date }}/edit'><i class="fas fa-pencil-alt"></i> Edit</a>

@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <section>
+    <section class='mainContent clearfix'>
         <h2>All Events</h2>
         <ul>
         @foreach($events as $event)
