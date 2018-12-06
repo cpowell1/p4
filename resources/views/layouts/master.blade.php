@@ -8,6 +8,7 @@
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
           rel="stylesheet"
           crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC|Trochut" rel="stylesheet">
     @stack('head')
 
 </head>
@@ -26,8 +27,8 @@
 <footer class='clearfix'>
     <div class='social'>
         <h4>The Social Setting | Nashville </h4>
-        <a href='http://instagram.com'><i class='fab fa-instagram'></i></a> |
-        <a href='http://facebook.com'><i class='fab fa-facebook'></i></a> |
+        <a href='http://instagram.com'><i class='fab fa-instagram'></i></a>
+        <a href='http://facebook.com'><i class='fab fa-facebook'></i></a>
         <a href='http://twitter.com'><i class='fab fa-twitter'></i></a>
     </div>
     <div class='copy'>&copy; {{ date('Y') }}</div>

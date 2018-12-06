@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    All Events
+   All Events
 @endsection
 
 @push('head')
