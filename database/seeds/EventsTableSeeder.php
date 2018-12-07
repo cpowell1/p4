@@ -13,7 +13,7 @@ class EventsTableSeeder extends Seeder
     public function run()
     {
         $events = [
-            ['Winter Festival with Junior Chamber', 'December 28th, 2018', '6:30pm', 'Cheekwood Gardens- Massey Hall', 'Networking'],
+            ['Winter Festival with Junior Chamber', 2018-12-03, '6:30pm', 'Cheekwood Gardens- Massey Hall', 'Networking'],
             ['Santa Rampage', 'December 15th, 2018', '12pm', '4th & Broadway', 'Holiday'],
             ['Porter Flea Market', 'December 7th, 2018', '10am', 'The Fairgrounds', 'Festivals'],
             ['Ugly Christmas Sweaters Dog Edition', 'December 5th, 2018', '2pm', 'The Farm at Natchez Trace', 'Pet-Friendly'],

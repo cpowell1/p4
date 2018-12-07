@@ -21,7 +21,7 @@ class Event extends Model
         }
         # Load the data array with the book info we want
         foreach ($events as $event) {
-            $data[] = $event->event_name . ' on ' . $event->date . ' at ' . $event->time;
+            $data[] = $event->event_name . ' on ' . $event->date . ' at ' . $event->time. ' at '. $event->location. ' This is a '. $event->category . 'type of event.';
         }
         dump($data);
     }
