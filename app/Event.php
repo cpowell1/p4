@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    public function events()
-    {
-        return $this->belongsTo('App\Event');
-    }
 
     public static function dump($events = null)
     {

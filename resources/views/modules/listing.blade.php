@@ -3,7 +3,7 @@
 <h3>{{ $event->date }}</h3>
 <p>{{ $event->time }}</p>
 
-<button>Read More</button>
+<a href='/events/{{ $event->id }}'><button>Read More</button></a>
 
 </div>
 

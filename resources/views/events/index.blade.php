@@ -13,6 +13,7 @@
         <ul>
         @foreach($events as $event)
         @include('modules.listing')
+
         @endforeach
         </ul>
     </section>

@@ -16,63 +16,95 @@ class EventController extends Controller
         ]);
     }
 
+    public function show(Request $request, $id)
+    {
+        $event = Event::find($id);
+        return view('events.show')->with([
+            'event' => $event
+        ]);
+    }
+
+
     public function search(Request $request)
     {
         return view('events.search');
     }
 
-    public function searchProcess(Request $request)
-    {
-    }
+   ## public function searchProcess(Request $request)
+   ##{
+   ##}
 
     public function login()
     {
         return view('events.login');
     }
 
-    /**
-     * GET /books/create
-     * Display the form to add a new book
-     */
+
     public function create(Request $request)
     {
         return view('events.create');
     }
 
-    /**
-     * POST /books
-     * Process the form for adding a new book
-     */
+
     public function store(Request $request)
     {
     }
 
     public function edit($id)
     {
-        return view('events.edit');
+        $event = Event::find($id);
+
+        if (!$event) {
+            return redirect('/events')->with([
+                'alert' => 'Event not found.'
+            ]);
+        }
+        return view('events.edit')->with([
+            'event' => $event
+        ]);
     }
 
-    /*
-    * PUT /books/{id}
-    */
-    public function update(Request $request)
+
+    public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'event_name' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'location' => 'required',
+            'category' => 'required',
+        ]);
+        $event = Event::find($id);
+        $event->event_name = $request->event_name;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->category= $request->category;
+        $event->location = $request->category;
+        $event->save();
+        return redirect('/events/' . $id . '/edit')->with([
+            'alert' => 'Your changes were saved.'
+        ]);
     }
 
-    /*
-   * Asks user to confirm they actually want to delete the book
-   * GET /books/{id}/delete
-   */
-    public function delete()
+
+    public function delete($id)
     {
-        return view('events.delete');
+        $event = Event::find($id);
+        if (!$event) {
+            return redirect('/events')->with('alert', 'Event not found');
+        }
+        return view('events.delete')->with([
+            'event' => $event,
+        ]);
     }
 
-    /*
-    * Actually deletes the book
-    * DELETE /books/{id}/delete
-    */
-    public function destroy()
+
+    public function destroy($id)
     {
+        $event = Event::find($id);
+        $event->delete();
+        return redirect('/events')->with([
+            'alert' => '“' . $event->event_name . '” was removed.'
+        ]);
     }
 }
