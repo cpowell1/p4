@@ -65,9 +65,6 @@ class EventController extends Controller
         $event->category = $request->category;
         $event->save();
 
-        return redirect('/events')->with([
-            'alert' => 'Your event was added.'
-        ]);
     }
 
     public function edit($id)
