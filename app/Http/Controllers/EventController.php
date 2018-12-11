@@ -58,11 +58,11 @@ class EventController extends Controller
         ]);
 
         $event = new Event();
-        $event->event_name = $request->event_name;
-        $event->date = $request->date;
-        $event->time = $request->time;
-        $event->location = $request->location;
-        $event->category = $request->category;
+        $event->event_name =$request->input('event_name');
+        $event->date = $request->input('date');
+        $event->time = $request->input('time');
+        $event->location = $request->input('location');
+        $event->category = $request->input('category');
         $event->save();
 
     }
