@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
+<div class='container'>
 
     <h1>Edit {{ $event->event_name }}</h1>
 
-    <form method='POST' action='/events/{{ $event->id }}'>
+    <form method='POST' action='/events/{{ $event->id }}' id='editform'>
         {{ method_field('put') }}
         {{ csrf_field() }}
 
@@ -41,6 +42,7 @@
 
         <input type='submit' value='Save Changes'>
     </form>
+   </div>
 
 
 @endsection

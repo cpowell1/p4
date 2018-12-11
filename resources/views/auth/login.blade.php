@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <h2>Login to Your Account</h2>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" id='loginform'>
                             @csrf
 
                             <div class="form-group row">
@@ -68,16 +68,13 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn loginbtns">
                                         {{ __('Login') }}
                                     </button>
 
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+                              @if (Route::has('password.request'))
+                              <a class="btn" href="{{ route('password.request') }}"><button class='loginbtns'>{{ __('Forgot Your Password?') }}</button></a>
+                              @endif
 
                                 </div>
                             </div>
@@ -85,7 +82,7 @@
                         <div>
                             <h3>Don't have an account? Join now!</h3>
                             <a href='/register'>
-                                <button class="btn btn-primary">Register</button>
+                                <button class="btn loginbtns">Register</button>
                             </a>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 <head>
     <title>@yield('title', config('app.name'))</title>
     <meta charset='utf-8'>
-    <link href='/socialsetting.css' rel='stylesheet'>
+    <link href='/css/socialsetting.css' rel='stylesheet'>
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
           rel="stylesheet"
