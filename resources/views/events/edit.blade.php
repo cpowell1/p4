@@ -36,6 +36,8 @@
             <option value='{{ $event->category }}' {{ (old('category', $event->category) == $event->category) ? 'selected' : '' }}>{{ $event->category }}</option>
         </select>
 
+        <label for='description'>Event Description</label>
+        <textarea name='description' id='description' value='{{ old('description', $event->description) }}'>Write your description...</textarea>
 
         <input type='submit' value='Save Changes'>
     </form>

@@ -13,7 +13,8 @@
     <div>
         <h2> {{ $event->event_name }} </h2>
         <p>By {{ $event->date }}</p>
-        <p>Added {{ $event->time }} </p>
+        <p>{{ $event->time }} </p>
+        <p>{{ $event->description }} </p>
 
 
         <ul class='eventActions'>
