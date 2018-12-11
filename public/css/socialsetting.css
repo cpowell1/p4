@@ -23,8 +23,11 @@ nav {
 }
 
 nav ul {
-    padding: 0;
     list-style-type: none;
+    text-align:center;
+    display:block;
+    margin: auto;
+    padding: 10px;
 }
 
 nav ul li {
@@ -45,6 +48,10 @@ a {
     color: #555555;
 }
 
+.copy {
+    font-family: 'Noto Serif TC';
+}
+
 /*----------------------------------------------------
 Typography
 -----------------------------------------------------*/
@@ -57,6 +64,7 @@ a.active:link, a.active:visited, a.active:active, a.active:hover {
     margin: auto;
     text-align: center;
     padding: 20px;
+    margin-bottom: 150px;
 }
 
 div#listing {
@@ -113,26 +121,36 @@ footer {
     margin: auto;
 }
 
+.invalid-feedback {
+    color: darkred;
+    font-size: 10px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    padding-bottom: 10px;
+}
+
 input, label, textarea, select {
     margin: auto;
     display: block;
     text-align: center;
     margin-bottom: 10px;
     width: 80%;
+    max-width: 400px;
     font-family: 'Noto Serif TC';
 }
 
 #remember {
-width: 5px;
-display: inline-block;
-margin-left: 10%;
+    width: 5px;
+    display: inline-block;
+    margin-left: 10%;
 }
 
 .form-check-label {
-width: 30%;
-margin-left: 5px;
-display: inline-block;
-font-size: 12px;
+    width: 30%;
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 12px;
 }
 
 .container {
@@ -141,24 +159,47 @@ font-size: 12px;
 }
 
 #editform {
- max-width: 600px;
- margin: auto;
- width: 95%;
- }
-
-#editform textarea {
-padding: 20px;
-width: 250px;
+    max-width: 600px;
+    margin: auto;
+    width: 95%;
 }
 
-#editform input[type='submit'] {
-width: 150px;
-padding: 15px;
-background-color: #e3e3e3;
-font-family: 'Trochut';
-font-size: 16px;
-margin-top: 15px;
+#editform textarea {
+    padding: 20px;
+    width: 250px;
+}
 
+input[type='submit'] {
+    width: 150px;
+    padding: 10px;
+    background-color: #e3e3e3;
+    font-family: 'Noto Serif TC';
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+input[type='submit']:hover {
+background-color: #A1C3E9;
+}
+
+#contentPage {
+    margin: auto;
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+}
+
+#contentPage ul li {
+    list-style-type: none;
+}
+
+#contentPage ul li {
+    background-color: #A1C3E9;
+    padding: 15px;
+    width: 40%;
+    display: inline-block;
+    margin: 10px;
+    max-width: 300px;
 }
 
 #loginform {
@@ -185,18 +226,40 @@ a {
 }
 
 .error {
-    color: darkred;
+    background-color: rgb(139, 0, 0, 0.3);
+    border: 1px solid darkred;
+    color: white;
+    padding: 5px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+
+.alert {
+    margin: auto;
+    display: block;
+    text-align: center;
+    background-color: rgb(139, 0, 0, 0.3);
+    border: 1px solid darkred;
+    color: white;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-width: 500px;
 }
 
 button {
     background-color: #e3e3e3;
     font-size: 13px;
     padding: 10px;
-    margin-bottom: 30px;
     min-width: 220px;
     border: #fff 3px solid;
     font-family: 'Noto Serif TC';
     font-size: 16px;
+    margin: auto;
+    display: block;
 
 }
 

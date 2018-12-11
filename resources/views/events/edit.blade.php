@@ -41,6 +41,12 @@
         <textarea name='description' id='description' value='{{ old('description', $event->description) }}'>Write your description...</textarea>
 
         <input type='submit' value='Save Changes'>
+
+        @if(count($errors) > 0)
+            <div class='alert'>
+                Please correct the errors above and try again.
+            </div>
+        @endif
     </form>
    </div>
 

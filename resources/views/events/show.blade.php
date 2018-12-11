@@ -4,24 +4,19 @@
     {{ $event->event_name }}
 @endsection
 
-@push('head')
-@endpush
-
 @section('content')
-    <h1>{{ $event->event_name }}</h1>
-
-    <div>
-        <h2> {{ $event->event_name }} </h2>
-        <p>By {{ $event->date }}</p>
-        <p>{{ $event->time }} </p>
-        <p>{{ $event->description }} </p>
+        <div id='contentPage'>
+            <h1>{{ $event->event_name }}</h1>
+            <p>{{ $event->date }}</p>
+            <p>{{ $event->time }}</p>
+            <p>{{ $event->description }}</p>
 
 
-        <ul class='eventActions'>
-            <li><a href='/events/{{ $event->id }}/edit'>Edit</a>
-            <li><a href='/events/{{ $event->id }}/delete'>Delete</a>
-        </ul>
-    </div>
+            <ul class='eventActions'>
+                <li><a href='/events/{{ $event->id }}/edit'>Edit</a>
+                <li><a href='/events/{{ $event->id }}/delete'>Delete</a>
+            </ul>
+        </div>
 @endsection
 
 

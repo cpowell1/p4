@@ -10,11 +10,6 @@
 
 
 @section('content')
-    @if(count($errors) > 0)
-        <div class='alert'>
-            Please correct the errors below.
-        </div>
-    @endif
 
     <h1>Create Your Event</h1>
 
@@ -50,6 +45,12 @@
         @include('modules.error-notice', ['field' => 'description'])
 
         <input type='submit' value='Add'>
+
+        @if(count($errors) > 0)
+            <div class='alert'>
+                Please correct the errors above and try again.
+            </div>
+        @endif
 
     </form>
 
