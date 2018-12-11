@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 
+
 class EventController extends Controller
 {
     public function index()
@@ -48,6 +49,25 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'event_name' => 'required',
+            'date' => 'required',
+            'time' => 'required|digits:4',
+            'location' => 'required|url',
+            'category' => 'required|url'
+        ]);
+
+        $event = new Event();
+        $event->event_name = $request->event_name;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->location = $request->location;
+        $event->category = $request->category;
+        $event->save();
+
+        return redirect('/events')->with([
+            'alert' => 'Your event was added.'
+        ]);
     }
 
     public function edit($id)
@@ -81,6 +101,7 @@ class EventController extends Controller
         $event->category= $request->category;
         $event->location = $request->category;
         $event->save();
+
         return redirect('/events/' . $id . '/edit')->with([
             'alert' => 'Your changes were saved.'
         ]);

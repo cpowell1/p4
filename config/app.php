@@ -6,7 +6,7 @@ return [
             '/events' => 'Events',
             '/events/search' => 'Search',
             '/events/login' => 'Login',
-
+            '/events/create' => 'Add Event',
         ],
 
     /*

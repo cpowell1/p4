@@ -14,34 +14,35 @@
         {{ csrf_field() }}
 
         <label for='event_name'>Event Name</label>
-        <input type='text' name='event_name' id='event_name' value='{{ old('event_name', $event->event_name) }}'>
+        <input type='text' name='event_name' id='event_name' value='{{ old('event_name')}}'>
 
 
         <label for='date'>Date</label>
-        <input type='text' name='date' id='date' value='{{ old('date', $event->date) }}'>
+        <input type='text' name='date' id='date' value='{{ old('date') }}'>
 
         <label for='time'>Time</label>
         <input type='text'
                name='time'
                id='time'
-               value='{{ old('time', $event->time) }}'>
+               value='{{ old('time') }}'>
 
 
         <label for='location'>Location</label>
-        <input type='text' name='location' id='location' value='{{ old('location', $event->location) }}'>
+        <input type='text' name='location' id='location' value='{{ old('location') }}'>
 
 
         <label for='category'>Category</label>
         <select name='category'>
             <option value=''>Choose one...</option>
-            @foreach($events as $event)
-                <option value='{{ $event->category }}' {{ (old('category', $event->category) == $event->category) ? 'selected' : '' }}>{{ $event->category }}</option>
-            @endforeach
+            <option value=''>Festivals</option>
         </select>
 
+        <input type='submit' value='Add'>
 
-        <input type='submit' value='Save Changes'>
     </form>
 
 
 @endsection
+
+
+
