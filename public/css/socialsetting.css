@@ -258,8 +258,6 @@ button {
     border: #fff 3px solid;
     font-family: 'Noto Serif TC';
     font-size: 16px;
-    margin: auto;
-    display: block;
 
 }
 
@@ -267,6 +265,8 @@ button:hover {
     background-color: #A1C3E9;
     border: 3px solid #fff;
 }
+
+
 
 #homebuttons {
     margin-top: 50px;

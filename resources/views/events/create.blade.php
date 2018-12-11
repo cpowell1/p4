@@ -10,7 +10,6 @@
 
 
 @section('content')
-
     <h1>Create Your Event</h1>
 
     <form method='POST' action='/events'>

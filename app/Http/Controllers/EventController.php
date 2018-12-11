@@ -52,6 +52,10 @@ class EventController extends Controller
         $event->location = $request->input('location');
         $event->description = $request->input('description');
         $event->save();
+
+        return redirect('/events')->with([
+            'alert' => 'Your event was added.'
+        ]);
     }
 
     public function edit($id)
