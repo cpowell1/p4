@@ -18,7 +18,7 @@
         {{ csrf_field() }}
 
         <label for='event_name'>Event Name</label>
-        <input type='text' name='event_name' id='event_name' value='{{ old('event_name')}}'>
+        <input type='text' name='event_name' id='event_name' value='{{ old('event_name') }}'>
         @include('modules.error-notice', ['field' => 'event_name'])
 
 
@@ -43,6 +43,8 @@
         <label for='description'>Event Description</label>
         <textarea name='description' id='description'>Write your description</textarea>
         @include('modules.error-notice', ['field' => 'description'])
+
+
 
         <input type='submit' value='Add'>
 

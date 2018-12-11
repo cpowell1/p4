@@ -60,3 +60,4 @@ Route::get('/show-login-status', function () {
 
     return;
 });
+
