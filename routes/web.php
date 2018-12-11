@@ -26,10 +26,6 @@ Route::get('/debug', function () {
 Route::get('/', 'HomeController');
 
 Route::group(['middleware' => 'auth'], function () {
-    # Create a book
-    Route::get('/events/create', 'EventController@create');
-    Route::post('/events', 'EventController@store');
-
     # Edit a book
     Route::get('/events/{id}/edit', 'EventController@edit');
     Route::put('/events/{id}', 'EventController@update');
@@ -38,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/events/{id}/delete', 'EventController@delete');
     Route::delete('/events/{id}', 'EventController@destroy');
 });
+
+
+Route::get('/events/create', 'EventController@create');
+Route::post('/events', 'EventController@store');
 
 #SEARCH
 Route::get('/events/search', 'EventController@search');
