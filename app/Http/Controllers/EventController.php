@@ -35,12 +35,6 @@ class EventController extends Controller
    ##{
    ##}
 
-    public function login()
-    {
-        return view('events.login');
-    }
-
-
     public function create(Request $request)
     {
         return view('events.create');

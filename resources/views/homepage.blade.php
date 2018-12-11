@@ -12,7 +12,7 @@
     <section class='mainContent'>
         <img src='/images/pinewood.jpg' alt='Pinewood Social' class='img'/>
         <div id="homebuttons">
-            <a href='/events/login'><button>Login</button></a>
+            <a href='/login'><button>Login</button></a>
             <a href='/events'><button>Browse What's Going On</button></a>
         </div>
 

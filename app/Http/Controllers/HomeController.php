@@ -10,7 +10,6 @@ class HomeController extends Controller
     public function __invoke()
     {
         $events = Event::orderBy('time')->get();
-
         return view('homepage')->with([
             'events' => $events
         ]);

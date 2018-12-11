@@ -5,8 +5,16 @@ return [
             '/' => 'Home',
             '/events' => 'Events',
             '/events/search' => 'Search',
-            '/events/login' => 'Login',
+            '/login' => 'Login',
+        ],
+
+        'nav1' => [
+            '/' => 'Home',
+            '/events' => 'Events',
+            '/events/search' => 'Search',
             '/events/create' => 'Add Event',
+            '/events/edit' => 'Edit Event',
+            '/events/delete' => 'Delete Event',
         ],
 
     /*
@@ -169,6 +177,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
         /*
          * Package Service Providers...

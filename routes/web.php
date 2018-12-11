@@ -18,17 +18,26 @@ Route::get('/debug', function () {
         $debug['Database connection test'] = 'PASSED';
         $debug['Databases'] = array_column($databases, 'Database');
     } catch (Exception $e) {
-        $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
+        $debug['Database connection test'] = 'FAILED: ' . $e->getMessage();
     }
     dump($debug);
 });
 
 Route::get('/', 'HomeController');
 
+Route::group(['middleware' => 'auth'], function () {
+    # Create a book
+    Route::get('/events/create', 'EventController@create');
+    Route::post('/events', 'EventController@store');
 
-# CREATE
-Route::get('/events/create', 'EventController@create');
-Route::post('/events', 'EventController@store');
+    # Edit a book
+    Route::get('/events/{id}/edit', 'EventController@edit');
+    Route::put('/events/{id}', 'EventController@update');
+
+    # Delete a book
+    Route::get('/events/{id}/delete', 'EventController@delete');
+    Route::delete('/events/{id}', 'EventController@destroy');
+});
 
 #SEARCH
 Route::get('/events/search', 'EventController@search');
@@ -38,20 +47,16 @@ Route::get('/events/search-process', 'EventController@searchProcess');
 Route::get('/events/{id}', 'EventController@show');
 Route::get('/events', 'EventController@index');
 
-#LOGIN
-Route::get('/events/login', 'EventController@login');
+Auth::routes();
 
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
 
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
 
-# EDIT
-# Show the form to edit a specific book
-Route::get('/events/{id}/edit', 'EventController@edit');
-# Process the form to edit a specific book
-Route::put('/events/{id}', 'EventController@update');
-
-# DELETE
-# Show the page to confirm deletion of a book
-Route::get('/events/{id}/delete', 'EventController@delete');
-# Process the deletion of a book
-Route::delete('/events/{id}', 'EventController@destroy');
-
+    return;
+});
