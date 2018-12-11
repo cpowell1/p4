@@ -27,7 +27,31 @@ class EventController extends Controller
 
     public function search(Request $request)
     {
-        return view('events.search');
+        return view('events.search')->with([
+            'searchTerm' => session('searchTerm', ''),
+            'searchResults' => session('searchResults', []),
+        ]);
+
+    }
+
+    public function searchProcess(Request $request)
+    {
+        $event = new Event();
+        $events = $event->all();
+
+        $searchResults = [];
+        $searchTerm = $request->input('searchTerm', null);
+
+        if ($searchTerm) {
+            foreach ($events as $name => $event) {
+                $searchResults[$name] = $event;
+            }
+        }
+
+        return redirect('/events/search')->with([
+            'searchTerm' => $searchTerm,
+            'searchResults' => $searchResults
+        ]);
     }
 
     public function create(Request $request)
