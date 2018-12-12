@@ -20,12 +20,9 @@ class EventsTableSeeder extends Seeder
             ['Single All the Way Bar Crawl', 'December 21st, 2018', '5pm', 'Tin Roof', 'An event description goes here.'],
             ['Make-A-Wish St. Jude Gala', 'December 14th, 2018', '7pm', 'The Ryman Auditorium', 'An event description goes here.'],
         ];
-
         $count = count($events);
-
         foreach ($events as $key => $eventData) {
             $event = new Event();
-
             $event->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $event->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $event->event_name = $eventData[0];
@@ -33,7 +30,6 @@ class EventsTableSeeder extends Seeder
             $event->time = $eventData[2];
             $event->location = $eventData[3];
             $event->description = $eventData[4];
-
             $event->save();
             $count--;
         }

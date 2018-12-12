@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -31,28 +32,36 @@ class EventController extends Controller
             'searchTerm' => session('searchTerm', ''),
             'searchResults' => session('searchResults', []),
         ]);
-
     }
 
     public function searchProcess(Request $request)
     {
-        $event = new Event();
-        $events = $event->all();
-
         $searchResults = [];
         $searchTerm = $request->input('searchTerm', null);
+        $events = Event::all();
 
-        if ($searchTerm) {
-            foreach ($events as $name => $event) {
-                $searchResults[$name] = $event;
+            if ($searchTerm) {
+                foreach ($events as $event) {
+                    if($event->event_name == $searchTerm) {
+                        {
+                          return $searchResults[$event];
+                        }
+                    }
+                }
             }
-        }
+        dump($events->toArray());
+        dd();
 
         return redirect('/events/search')->with([
             'searchTerm' => $searchTerm,
-            'searchResults' => $searchResults
+            'events' => $events,
+            'searchResults' => $searchResults,
+
         ]);
+
     }
+
+
 
     public function create(Request $request)
     {
@@ -139,5 +148,30 @@ class EventController extends Controller
         return redirect('/events')->with([
             'alert' => '“' . $event->event_name . '” was removed.'
         ]);
+    }
+
+    # Standard format we'll use for displaying any dates
+    public function getTime() {
+
+        # Standard format we'll use for displaying any dates
+        $format = 'F j, Y g:ia';
+
+        # Get a Carbon datetime object for the start and end of this week
+        #  REF: https://carbon.nesbot.com/docs/#api-week
+        #  Note, you can force start/end to be something other than Mon/Fri (explained in docs)
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+
+        dump('START OF WEEK: '.$startOfWeek->format($format));
+        dump('END OF WEEK: '.$endOfWeek->format($format));
+
+        # Query for events this week
+        $events = Event::where('when', '>=', $startOfWeek)->where('when', '<=', $endOfWeek)->get();
+
+        # Dump to the page so we can check our results
+        dump('Events happening this week:');
+        foreach($events as $event) {
+            dump($event->event_name.' on '.$event->when->format($format));
+        }
     }
 }

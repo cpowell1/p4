@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    protected $dates = [
+        'when',
+    ];
 
     public static function dump($events = null)
     {
