@@ -44,17 +44,15 @@ class EventController extends Controller
                 foreach ($events as $event) {
                     if($event->event_name == $searchTerm) {
                         {
-                          return $searchResults[$event];
+                            $searchResults[] = $event;
                         }
                     }
                 }
             }
-        dump($events->toArray());
-        dd();
+
 
         return redirect('/events/search')->with([
             'searchTerm' => $searchTerm,
-            'events' => $events,
             'searchResults' => $searchResults,
 
         ]);

@@ -32,9 +32,10 @@
             @else
                 @foreach($searchResults as $title => $event)
                     <div>
-                        <h3>{{ $title }}</h3>
-                        <h4>by {{ $event['event_name'] }}</h4>
+
+                        <h3>{{ $event['event_name'] }}</h3>
                         <p>{{ $event['date'] }} </p>
+                        <p> {{ $event['description'] }} </p>
                     </div>
                 @endforeach
             @endif
