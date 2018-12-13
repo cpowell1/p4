@@ -82,6 +82,7 @@ class EventController extends Controller
         $event->time = $request->input('time');
         $event->location = $request->input('location');
         $event->description = $request->input('description');
+        $event->user_id = $request->user()->id;
         $event->save();
 
         return redirect('/events')->with([
@@ -148,28 +149,12 @@ class EventController extends Controller
         ]);
     }
 
-    # Standard format we'll use for displaying any dates
-    public function getTime() {
+    public function account(Request $request) {
+        $user = $request->user();
 
-        # Standard format we'll use for displaying any dates
-        $format = 'F j, Y g:ia';
-
-        # Get a Carbon datetime object for the start and end of this week
-        #  REF: https://carbon.nesbot.com/docs/#api-week
-        #  Note, you can force start/end to be something other than Mon/Fri (explained in docs)
-        $startOfWeek = Carbon::now()->startOfWeek();
-        $endOfWeek = Carbon::now()->endOfWeek();
-
-        dump('START OF WEEK: '.$startOfWeek->format($format));
-        dump('END OF WEEK: '.$endOfWeek->format($format));
-
-        # Query for events this week
-        $events = Event::where('when', '>=', $startOfWeek)->where('when', '<=', $endOfWeek)->get();
-
-        # Dump to the page so we can check our results
-        dump('Events happening this week:');
-        foreach($events as $event) {
-            dump($event->event_name.' on '.$event->when->format($format));
-        }
+        $events = $user->events()->orderBy('title')->get();
+        return view('events.useraccount')->with([
+            'events' => $events,
+        ]);
     }
 }

@@ -13,6 +13,7 @@ return [
             '/events' => 'Events',
             '/events/search' => 'Search',
             '/events/create' => 'Add Event',
+            '/events/yourevents' => 'Your Events',
         ],
 
     /*

@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $dates = [
-        'when',
-    ];
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public static function dump($events = null)
     {

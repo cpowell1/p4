@@ -30,6 +30,7 @@ class EventsTableSeeder extends Seeder
             $event->time = $eventData[2];
             $event->location = $eventData[3];
             $event->description = $eventData[4];
+            $event->user_id = 1;
             $event->save();
             $count--;
         }

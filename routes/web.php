@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/events/{id}', 'EventController@destroy');
 });
 
+#User Account
+Route::get('/events/yourevents', 'EventController@account');
 
 #SEARCH
 Route::get('/events/search', 'EventController@search');
