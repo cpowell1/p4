@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-use Carbon\Carbon;
+use App\Category;
+use App\User;
 
 class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::orderBy('time')->get();
+        $events = Event::orderBy('event_name')->get();
 
         return view('events.index')->with([
             'events' => $events
@@ -42,7 +43,7 @@ class EventController extends Controller
 
             if ($searchTerm) {
                 foreach ($events as $event) {
-                    if($event->event_name == $searchTerm) {
+                    if(strtolower($event->event_name) == strtolower($searchTerm)) {
                         {
                             $searchResults[] = $event;
                         }
@@ -63,7 +64,10 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
-        return view('events.create');
+        $categories = Category::catCheckbox();
+        return view('events.create')->with([
+            'categories' => $categories
+        ]);
     }
 
     public function store(Request $request)
@@ -73,7 +77,8 @@ class EventController extends Controller
             'date' => 'required',
             'time' => 'required',
             'location' => 'required',
-            'description' => ' ',
+            'description' => 'required',
+            'event_url' => 'required ',
         ]);
 
         $event = new Event();
@@ -82,27 +87,38 @@ class EventController extends Controller
         $event->time = $request->input('time');
         $event->location = $request->input('location');
         $event->description = $request->input('description');
+        $event->event_url = $request->input('event_url');
         $event->user_id = $request->user()->id;
         $event->save();
 
+        $event->events()->sync($request->categories);
+
         return redirect('/events')->with([
-            'alert' => 'Your event was added.'
+            'alert' => 'Your event was created.'
         ]);
     }
 
-    public function edit($id)
+
+    public function edit(Request $request, $id)
     {
         $event = Event::find($id);
 
-        if (!$event) {
+        $categories = Category::catCheckbox();
+        $catsforEvent = $event->categories()->pluck('categories.id')->toArray();
+
+        if($event->user->id != $request->user()->id) {
             return redirect('/events')->with([
-                'alert' => 'Event not found.'
+                'alert' => 'Access denied. You cannot edit events that you do not own.'
             ]);
+        }  else {
+            return view('events.edit')
+                ->with([
+                    'event' => $event,
+                    'categories' => $categories,
+                    'catsforEvent' => $catsforEvent
+                ]);
         }
 
-        return view('events.edit')->with([
-            'event' => $event
-        ]);
     }
 
     public function update(Request $request, $id)
@@ -113,46 +129,57 @@ class EventController extends Controller
             'time' => 'required',
             'location' => 'required',
             'description' => 'required',
+            'event_url' => 'required',
         ]);
         $event = Event::find($id);
+
+        $event->categories()->sync($request->categories);
+
         $event->event_name = $request->event_name;
         $event->date = $request->date;
         $event->time = $request->time;
         $event->location = $request->location;
         $event->description = $request->description;
+        $event->event_url = $request->event_url;
         $event->save();
 
         return redirect('/events/' . $id . '/edit')->with([
-            'alert' => 'Your changes were saved.'
+            'alert' => 'Your event was updated.'
         ]);
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $event = Event::find($id);
-        if (!$event) {
-            return redirect('/events')->with('alert', 'Event not found');
-        }
 
-        return view('events.delete')->with([
-            'event' => $event,
-        ]);
+        if($event->user->id != $request->user()->id) {
+            return redirect('/events')->with([
+                'alert' => 'You cannot delete other users\' events.'
+            ]);
+        } else {
+            $event->categories()->detach();
+            return view('events.delete')->with([
+                'event' => $event
+            ]);
+        }
     }
 
     public function destroy($id)
     {
         $event = Event::find($id);
+
+        $event->categories()->detach();
+
         $event->delete();
 
         return redirect('/events')->with([
-            'alert' => '“' . $event->event_name . '” was removed.'
+            'alert' => ' ' . $event->event_name . ' was removed.'
         ]);
     }
 
     public function account(Request $request) {
         $user = $request->user();
-
-        $events = $user->events()->orderBy('title')->get();
+        $events = $user->events()->orderBy('event_name')->get();
         return view('events.useraccount')->with([
             'events' => $events,
         ]);

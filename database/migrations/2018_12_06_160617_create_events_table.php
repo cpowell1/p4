@@ -28,6 +28,7 @@ class CreateEventsTable extends Migration
             $table->string('time');
             $table->string('location');
             $table->string('description');
+            $table->string('event_url');
 
         });
     }

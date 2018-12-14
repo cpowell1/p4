@@ -10,12 +10,8 @@
             <p>{{ $event->date }}</p>
             <p>{{ $event->time }}</p>
             <p>{{ $event->description }}</p>
+           <p>{{ $event->event_url }}</p>
 
-
-            <ul class='eventActions'>
-                <li><a href='/events/{{ $event->id }}/edit'>Edit</a>
-                <li><a href='/events/{{ $event->id }}/delete'>Delete</a>
-            </ul>
         </div>
 @endsection
 

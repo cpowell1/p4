@@ -13,12 +13,12 @@ class EventsTableSeeder extends Seeder
     public function run()
     {
         $events = [
-            ['Winter Festival with Junior Chamber', 'December 3, 2018', '6:30pm', 'Cheekwood Gardens- Massey Hall', 'An event description goes here.'],
-            ['Santa Rampage', 'December 15th, 2018', '12pm', '4th & Broadway', 'An event description goes here.'],
-            ['Porter Flea Market', 'December 7th, 2018', '10am', 'The Fairgrounds', 'An event description goes here.'],
-            ['Ugly Christmas Sweaters Dog Edition', 'December 5th, 2018', '2pm', 'The Farm at Natchez Trace', 'An event description goes here.'],
-            ['Single All the Way Bar Crawl', 'December 21st, 2018', '5pm', 'Tin Roof', 'An event description goes here.'],
-            ['Make-A-Wish St. Jude Gala', 'December 14th, 2018', '7pm', 'The Ryman Auditorium', 'An event description goes here.'],
+            ['Winter Festival with Junior Chamber', 'December 3, 2018', '6:30pm', 'Cheekwood Gardens- Massey Hall', 'An event description goes here.', 'www.google.com'],
+            ['Santa Rampage', 'December 15th, 2018', '12pm', '4th & Broadway', 'An event description goes here.', 'www.google.com'],
+            ['Porter Flea Market', 'December 7th, 2018', '10am', 'The Fairgrounds', 'An event description goes here.', 'www.google.com'],
+            ['Ugly Christmas Sweaters Dog Edition', 'December 5th, 2018', '2pm', 'The Farm at Natchez Trace', 'An event description goes here.', 'www.google.com'],
+            ['Single All the Way Bar Crawl', 'December 21st, 2018', '5pm', 'Tin Roof', 'An event description goes here.', 'www.google.com'],
+            ['Make-A-Wish St. Jude Gala', 'December 14th, 2018', '7pm', 'The Ryman Auditorium', 'An event description goes here.', 'www.google.com'],
         ];
         $count = count($events);
         foreach ($events as $key => $eventData) {
@@ -30,6 +30,7 @@ class EventsTableSeeder extends Seeder
             $event->time = $eventData[2];
             $event->location = $eventData[3];
             $event->description = $eventData[4];
+            $event->event_url = $eventData[5];
             $event->user_id = 1;
             $event->save();
             $count--;

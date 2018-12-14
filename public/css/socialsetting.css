@@ -24,8 +24,8 @@ nav {
 
 nav ul {
     list-style-type: none;
-    text-align:center;
-    display:block;
+    text-align: center;
+    display: block;
     margin: auto;
     padding: 10px;
 }
@@ -179,7 +179,7 @@ input[type='submit'] {
 }
 
 input[type='submit']:hover {
-background-color: #A1C3E9;
+    background-color: #A1C3E9;
 }
 
 #contentPage {
@@ -189,17 +189,45 @@ background-color: #A1C3E9;
     text-align: center;
 }
 
-#contentPage ul li {
-    list-style-type: none;
+#userEvents {
+    background-color: #cccccb;
+    border: 3px solid #555555;
+    max-width: 300px;
+    margin: auto;
+    display: inline-block;
 }
 
-#contentPage ul li {
+
+
+#userBottom {
+    margin: auto;
+    width: 95%;
+    max-width: 500px;
+    padding-top: 100px;
+
+}
+
+#userEvents button {
+    padding: 5px;
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+    border: 1px solid #555555;
+}
+
+#userEvents ul li {
     background-color: #A1C3E9;
-    padding: 15px;
-    width: 40%;
+    padding: 5px;
+    width: 100px;
     display: inline-block;
-    margin: 10px;
-    max-width: 300px;
+    margin-right: 18px;
+    margin-top: 10px;
+    color: white;
+    border: 1px solid #555555;
+    font-size: 11px;
+    font-family: 'Noto Serif TC';
+    text-align: center;
+    list-style-type: none;
 }
 
 #loginform {
@@ -241,8 +269,7 @@ a {
     margin: auto;
     display: block;
     text-align: center;
-    background-color: rgb(139, 0, 0, 0.3);
-    border: 1px solid darkred;
+    background-color: #555555;
     color: white;
     padding: 10px;
     margin-top: 25px;
@@ -261,12 +288,25 @@ button {
 
 }
 
+#userAccount {
+    margin: auto;
+    width: 95%;
+    max-width: 3200px;
+    padding-bottom: 50px;
+}
+
+#userAccount p {
+    text-align: center;
+}
+
+#userAccount a {
+    font-weight: bold;
+}
+
 button:hover {
     background-color: #A1C3E9;
     border: 3px solid #fff;
 }
-
-
 
 #homebuttons {
     margin-top: 50px;
