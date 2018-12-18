@@ -12,15 +12,9 @@
     <section class='mainContent'>
         <img src='/images/pinewood.jpg' alt='Pinewood Social' class='img'/>
         <div id="homebuttons">
-            <a href='/events'><button>Browse What's Going On</button></a>
-        </div>
-
-        <div id='topevent'>
-            <h2>Events This Week</h2>
-            @foreach($events as $event)
-                <p>{{ $event->event_name }}</p>
-
-            @endforeach
+            <a href='/events'>
+                <button>Browse What's Going On</button>
+            </a>
         </div>
 
     </section>
