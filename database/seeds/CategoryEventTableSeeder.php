@@ -8,22 +8,21 @@ class CategoryEventTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
-
     public function run()
     {
         $events = [
-            'Santa Rampage' => ['bars', 'food + drink', 'festivals'],
-            'Ugly Christmas Sweaters Dog Edition' => ['pet-friendly', 'festivals', 'holiday'],
-            'Make-A-Wish St. Jude Gala' => ['charity']
+            'Porter Flea Market' => ['festivals', 'food+drink',                    'pet-friendly'],
+            'Single All the Way Bar Crawl' => ['bars', 'holiday',                   'music'],
+            'Make-A-Wish St. Jude Gala' => ['charity', 'holiday',                   'music']
         ];
 
-        foreach ($events as $type => $categories) {
-            $event = Event::where('type', 'like', $type)->first();
-            foreach ($categories as $categoriesType) {
-                $category = Category::where('type', 'LIKE', $categoriesType)->first();
+        foreach ($events as $event_name => $categories) {
+            $event = Event::where('event_name', 'like', $event_name)->first();
+
+            foreach ($categories as $catType) {
+                $category = Category::where('type', 'LIKE', $catType)->first();
 
                 $event->categories()->save($category);
             }
