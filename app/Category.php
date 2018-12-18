@@ -10,4 +10,17 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Event')->withTimestamps();
     }
+
+    public static function categoryCheckbox()
+    {
+        $categories = self::orderBy('type')->get();
+
+        $catCheckboxes = [];
+
+        foreach ($categories as $category) {
+            $catCheckboxes[$category['id']] = $category->name;
+        }
+
+        return $catCheckboxes;
+    }
 }

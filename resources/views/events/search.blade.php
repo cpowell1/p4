@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-    <section class='mainContent'>
+    <section class='mainContent clearfix'>
         <h2>Search All Events</h2>
 
 
@@ -31,16 +31,16 @@
                 No matches found.
             @else
                 @foreach($searchResults as $title => $event)
-                    <div>
+                    <div id='listing'>
 
                         <h3>{{ $event['event_name'] }}</h3>
                         <p>{{ $event['date'] }} </p>
+                        <p>{{ $event['time'] }} </p>
                         <p> {{ $event['description'] }} </p>
                     </div>
                 @endforeach
             @endif
         @endif
-
 
     </section>
 @endsection

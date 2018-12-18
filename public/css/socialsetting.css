@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 p {
@@ -102,7 +102,7 @@ footer {
 }
 
 #listing button {
-    background-color: transparent;
+    background-color: #1f325a;
     font-size: 13px;
     padding: 10px;
     width: 50%;
@@ -112,7 +112,6 @@ footer {
 
 #listing button:hover {
     background-color: #A1C3E9;
-    border: 3px solid #fff;
 }
 
 .img {
@@ -182,32 +181,59 @@ input[type='submit']:hover {
     background-color: #A1C3E9;
 }
 
+#categories {
+border: 1px solid #555555;
+font-size: 14px;
+}
+
 #contentPage {
     margin: auto;
     width: 95%;
     max-width: 600px;
-    text-align: center;
 }
 
-#userEvents {
+#checkbox {
+display: inline-block;
+width: 200px;
+}
+
+#checkbox input {
+display: block;
+width: 25px;
+
+}
+
+#catCheck {
+    list-style-type: none;
+    margin: auto;
+    width: 450px;
+    padding-bottom: 40px;
+    padding-top: 15px;
+}
+
+
+
+.userEvents {
     background-color: #cccccb;
     border: 3px solid #555555;
     max-width: 300px;
-    margin: auto;
-    display: inline-block;
+    height: 500px;
+    margin-top: 10px;
+    float: left;
+    margin: 10px;
 }
 
 
 
 #userBottom {
-    margin: auto;
     width: 95%;
+    display: block;
+    margin: auto;
     max-width: 500px;
-    padding-top: 100px;
-
+    padding-bottom: 10px;
 }
 
-#userEvents button {
+.userEvents button {
     padding: 5px;
     margin: auto;
     margin-top: 50px;
@@ -215,12 +241,16 @@ input[type='submit']:hover {
     border: 1px solid #555555;
 }
 
-#userEvents ul li {
+.userEvents ul {
+width: 270px;
+}
+
+.userEvents ul li {
     background-color: #A1C3E9;
     padding: 5px;
-    width: 100px;
+    width: 85px;
     display: inline-block;
-    margin-right: 18px;
+    margin-right: 25px;
     margin-top: 10px;
     color: white;
     border: 1px solid #555555;
@@ -243,6 +273,7 @@ input[type='submit']:hover {
     margin: auto;
     display: block;
     margin-top: 10px;
+    background: #1f325a;
 }
 
 .row.justify-content-center {
@@ -275,16 +306,17 @@ a {
     margin-top: 25px;
     margin-bottom: 25px;
     max-width: 500px;
+    font-family: 'Noto Serif TC';
 }
 
 button {
-    background-color: #e3e3e3;
-    font-size: 13px;
+    background-color: #1f325a;
     padding: 10px;
     min-width: 220px;
     border: #fff 3px solid;
     font-family: 'Noto Serif TC';
     font-size: 16px;
+    color: white;
 
 }
 
@@ -305,7 +337,6 @@ button {
 
 button:hover {
     background-color: #A1C3E9;
-    border: 3px solid #fff;
 }
 
 #homebuttons {

@@ -21,9 +21,11 @@ class EventController extends Controller
     public function show(Request $request, $id)
     {
         $event = Event::find($id);
+        $categories = Category::all();
 
         return view('events.show')->with([
-            'event' => $event
+            'event' => $event,
+            'categories' => $categories
         ]);
     }
 
@@ -41,30 +43,27 @@ class EventController extends Controller
         $searchTerm = $request->input('searchTerm', null);
         $events = Event::all();
 
-            if ($searchTerm) {
-                foreach ($events as $event) {
-                    if(strtolower($event->event_name) == strtolower($searchTerm)) {
-                        {
-                            $searchResults[] = $event;
-                        }
+        if ($searchTerm) {
+            foreach ($events as $event) {
+                if (strtolower($event->event_name) == strtolower($searchTerm)) {
+                    {
+                        $searchResults[] = $event;
                     }
                 }
             }
-
+        }
 
         return redirect('/events/search')->with([
             'searchTerm' => $searchTerm,
             'searchResults' => $searchResults,
 
         ]);
-
     }
-
-
 
     public function create(Request $request)
     {
-        $categories = Category::catCheckbox();
+        $categories = Category::categoryCheckbox();
+
         return view('events.create')->with([
             'categories' => $categories
         ]);
@@ -78,7 +77,7 @@ class EventController extends Controller
             'time' => 'required',
             'location' => 'required',
             'description' => 'required',
-            'event_url' => 'required ',
+            'event_url' => 'required',
         ]);
 
         $event = new Event();
@@ -91,26 +90,26 @@ class EventController extends Controller
         $event->user_id = $request->user()->id;
         $event->save();
 
-        $event->events()->sync($request->categories);
+        $event->categories()->sync($request->categories);
 
         return redirect('/events')->with([
             'alert' => 'Your event was created.'
         ]);
     }
 
-
     public function edit(Request $request, $id)
     {
         $event = Event::find($id);
 
-        $categories = Category::catCheckbox();
-        $catsforEvent = $event->categories()->pluck('categories.id')->toArray();
+        $categories = Category::categoryCheckbox();
 
-        if($event->user->id != $request->user()->id) {
+        $catsforEvent = $event->categories->pluck('categories.id')->toArray();
+
+        if ($event->user->id != $request->user()->id) {
             return redirect('/events')->with([
                 'alert' => 'Access denied. You cannot edit events that you do not own.'
             ]);
-        }  else {
+        } else {
             return view('events.edit')
                 ->with([
                     'event' => $event,
@@ -118,7 +117,6 @@ class EventController extends Controller
                     'catsforEvent' => $catsforEvent
                 ]);
         }
-
     }
 
     public function update(Request $request, $id)
@@ -131,6 +129,7 @@ class EventController extends Controller
             'description' => 'required',
             'event_url' => 'required',
         ]);
+
         $event = Event::find($id);
 
         $event->categories()->sync($request->categories);
@@ -152,12 +151,11 @@ class EventController extends Controller
     {
         $event = Event::find($id);
 
-        if($event->user->id != $request->user()->id) {
+        if ($event->user->id != $request->user()->id) {
             return redirect('/events')->with([
                 'alert' => 'You cannot delete other users\' events.'
             ]);
         } else {
-            $event->categories()->detach();
             return view('events.delete')->with([
                 'event' => $event
             ]);
@@ -177,9 +175,11 @@ class EventController extends Controller
         ]);
     }
 
-    public function account(Request $request) {
+    public function account(Request $request)
+    {
         $user = $request->user();
         $events = $user->events()->orderBy('event_name')->get();
+
         return view('events.useraccount')->with([
             'events' => $events,
         ]);

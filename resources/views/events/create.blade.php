@@ -38,15 +38,28 @@
         @include('modules.error-notice', ['field' => 'location'])
 
 
-
         <label for='description'>Event Description</label>
-        <textarea name='description' id='description'>Write your description</textarea>
+        <input name='description' id='description'>
         @include('modules.error-notice', ['field' => 'description'])
 
         <label for='event_url'>Event Website URL</label>
         <input type='text' name='event_url' id='event_url' value='{{ old('event_url') }}'>
         @include('modules.error-notice', ['field' => 'event_url'])
 
+        <label>Event Category (Check All that Apply)</label>
+
+
+        <ul id='catCheck'>
+            @foreach($categories as $categoryId => $categoryType)
+                <div id='checkbox'>
+                    <li><input {{ (in_array($categoryId, old('tags', []) )) ? 'checked' : '' }}
+                    type='checkbox'
+                                    name='tags[]'
+                                    value='{{ $categoryId }}'></li>
+                                    <label> {{ $categoryType }} Category </label>
+                </div>
+            @endforeach
+        </ul>
 
 
         <input type='submit' value='Add'>

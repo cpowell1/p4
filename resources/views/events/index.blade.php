@@ -9,7 +9,7 @@
 
 @section('content')
     <section class='mainContent clearfix'>
-        <h2>All Events</h2>
+        <h1>All Events</h1>
         <ul>
         @foreach($events as $event)
         @include('modules.listing')
