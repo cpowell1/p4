@@ -11,12 +11,15 @@
         <p>{{ $event->time }}</p>
         <p>{{ $event->description }}</p>
         <p>{{ $event->event_url }}</p>
-
-        <div id='categories'>
-        @foreach($event->categories as $category)
-            <span>{{ $category->type }}</span>
-        @endforeach
         </div>
+        @if(count($event->categories) >= 1)
+            <div id='categories'>
+            <h3>Tags:</h3>
+            @foreach($event->categories as $category)
+                <span>{{ $category->type }}</span>
+            @endforeach
+        @endif
+
     </div>
 @endsection
 

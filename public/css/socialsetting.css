@@ -182,24 +182,32 @@ input[type='submit']:hover {
 }
 
 #categories {
-border: 1px solid #555555;
-font-size: 14px;
+    font-size: 14px;
+    margin: auto;
+    width: 250px;
+    margin-bottom: 30px;
+    font-family: 'Noto Serif TC';
+    color: #555555;
+    text-align: center;
+    border-top: 1px solid #555555;
 }
 
 #contentPage {
     margin: auto;
     width: 95%;
     max-width: 600px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 #checkbox {
-display: inline-block;
-width: 200px;
+    display: inline-block;
+    width: 200px;
 }
 
 #checkbox input {
-display: block;
-width: 25px;
+    display: block;
+    width: 25px;
 
 }
 
@@ -211,8 +219,6 @@ width: 25px;
     padding-top: 15px;
 }
 
-
-
 .userEvents {
     background-color: #cccccb;
     border: 3px solid #555555;
@@ -222,8 +228,6 @@ width: 25px;
     float: left;
     margin: 10px;
 }
-
-
 
 #userBottom {
     width: 95%;
@@ -242,7 +246,7 @@ width: 25px;
 }
 
 .userEvents ul {
-width: 270px;
+    width: 270px;
 }
 
 .userEvents ul li {
