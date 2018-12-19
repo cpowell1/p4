@@ -14,7 +14,7 @@
     </div>
     @if(count($event->categories) >= 1)
         <div id='categories'>
-            <h3>Tags:</h3>
+            <h3>Categories:</h3>
 
             @foreach($event->categories as $category)
                 <span> {{ $category->type }}</span>
