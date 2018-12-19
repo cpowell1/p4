@@ -19,6 +19,25 @@ class Event extends Model
         return $this->belongsToMany('App\Category')->withTimestamps();
     }
 
+    public function weekTime() {
+
+        $format = 'F j, Y g:ia';
+
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+
+
+
+        # Query for events this week
+        $events = Event::where('when', '>=', $startOfWeek)->where('when', '<=', $endOfWeek)->get();
+
+        # Dump to the page so we can check our results
+
+        foreach($events as $event) {
+            dump($event->event_name.' on '.$event->when->format($format));
+        }
+    }
+
     protected $dates = [
         'when',
     ];

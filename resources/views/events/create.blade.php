@@ -21,17 +21,9 @@
         @include('modules.error-notice', ['field' => 'event_name'])
 
 
-        <label for='date'>Date</label>
-        <input type='text' name='date' id='date' value='{{ old('date') }}'>
-        @include('modules.error-notice', ['field' => 'date'])
-
-        <label for='time'>Time</label>
-        <input type='text'
-               name='time'
-               id='time'
-               value='{{ old('time') }}'>
-        @include('modules.error-notice', ['field' => 'time'])
-
+        <label for='when'>Date and Time: (YYYY-MM-DD HH:MM:SS)</label>
+        <input type='text' name='when' id='when' value='{{ old('when') }}'>
+        @include('modules.error-notice', ['field' => 'when'])
 
         <label for='location'>Location</label>
         <input type='text' name='location' id='location' value='{{ old('location') }}'>
@@ -56,7 +48,7 @@
                     type='checkbox'
                                     name='tags[]'
                                     value='{{ $categoryId }}'></li>
-                                    <label> {{ $categoryType }} Category </label>
+                                    <label> {{ ucwords($categoryType) }}</label>
                 </div>
             @endforeach
         </ul>

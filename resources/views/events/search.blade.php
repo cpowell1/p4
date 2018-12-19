@@ -34,8 +34,8 @@
                     <div id='listing'>
 
                         <h3>{{ $event['event_name'] }}</h3>
-                        <p>{{ $event['date'] }} </p>
-                        <p>{{ $event['time'] }} </p>
+                        <p>{{ $event->when->format('M d, Y') }}</p>
+                        <p>{{ $event->when->format('g:ia') }}</p>
                         <p> {{ $event['description'] }} </p>
                     </div>
                 @endforeach

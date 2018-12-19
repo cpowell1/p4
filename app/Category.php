@@ -18,7 +18,7 @@ class Category extends Model
         $catCheckboxes = [];
 
         foreach ($categories as $category) {
-            $catCheckboxes[$category['id']] = $category->name;
+            $catCheckboxes[$category['id']] = $category->type;
         }
 
         return $catCheckboxes;

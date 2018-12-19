@@ -9,9 +9,10 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $events = Event::orderBy('time')->get();
+        $events = Event::orderBy('when','DESC')->limit(3)->get();
         return view('homepage')->with([
-            'events' => $events
+            'events' => $events,
+
         ]);
     }
 }

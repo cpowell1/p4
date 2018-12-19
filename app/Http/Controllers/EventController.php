@@ -26,7 +26,7 @@ class EventController extends Controller
 
         return view('events.show')->with([
             'event' => $event,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -74,8 +74,7 @@ class EventController extends Controller
     {
         $request->validate([
             'event_name' => 'required',
-            'date' => 'required',
-            'time' => 'required',
+            'when' => 'required',
             'location' => 'required',
             'description' => 'required',
             'event_url' => 'required',
@@ -83,8 +82,7 @@ class EventController extends Controller
 
         $event = new Event();
         $event->event_name = $request->input('event_name');
-        $event->date = $request->input('date');
-        $event->time = $request->input('time');
+        $event->when = $request->input('when');
         $event->location = $request->input('location');
         $event->description = $request->input('description');
         $event->event_url = $request->input('event_url');
@@ -124,8 +122,7 @@ class EventController extends Controller
     {
         $this->validate($request, [
             'event_name' => 'required',
-            'date' => 'required',
-            'time' => 'required',
+            'when' => 'required',
             'location' => 'required',
             'description' => 'required',
             'event_url' => 'required',
@@ -136,8 +133,7 @@ class EventController extends Controller
         $event->categories()->sync($request->categories);
 
         $event->event_name = $request->event_name;
-        $event->date = $request->date;
-        $event->time = $request->time;
+        $event->when = $request->when;
         $event->location = $request->location;
         $event->description = $request->description;
         $event->event_url = $request->event_url;
@@ -185,4 +181,6 @@ class EventController extends Controller
             'events' => $events,
         ]);
     }
+
+
 }
