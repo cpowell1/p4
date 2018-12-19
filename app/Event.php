@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Event extends Model
 {
     public function user()
@@ -16,6 +18,10 @@ class Event extends Model
     {
         return $this->belongsToMany('App\Category')->withTimestamps();
     }
+
+    protected $dates = [
+        'when',
+    ];
 
     public static function dump($events = null)
     {
